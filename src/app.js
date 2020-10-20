@@ -214,10 +214,20 @@ function news(channel, userstate) {
 }
 
 function discord(channel, userstate) {
-  client.say(
-    channel,
-    `@${userstate.username}, The discord invite link is: YOUR DISCORD LINK HERE` // Put your discord here
-  );
+  if (message.startsWith('@')) {
+    const splitString = message.split(' ');
+    const taggedUser = splitString[0].substring(1);
+
+    client.say(
+      channel,
+      `@${taggedUser}, The discord invite link is: YOUR DISCORD LINK HERE` // Put your discord here
+    );
+  } else {
+    client.say(
+      channel,
+      `@${userstate.username}, The discord invite link is: YOUR DISCORD LINK HERE` // Put your discord here
+    );
+  }
 }
 
 function checkTwitchChat(userstate, message, channel) {
