@@ -96,12 +96,10 @@ client.on('message', (channel, userstate, message, self) => {
     return;
   }
 
-  if (message.toLowerCase() === '!discord') {
-    discord(channel, userstate);
-    return;
-  }
-
-  if (message.toLowerCase() === '!disc') {
+  if (
+    message.toLowerCase().includes('!discord') ||
+    message.toLowerCase().includes('!disc')
+  ) {
     discord(channel, userstate);
     return;
   }
